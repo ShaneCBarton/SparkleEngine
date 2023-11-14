@@ -1,9 +1,14 @@
 #include <iostream>
-#include <SDL.h>
+#include "Engine.h"
+
 
 int main(int argc, char* argv[])
 {
-    SDL_Init(SDL_INIT_EVERYTHING);
-    std::cout << "Hello, world!" << std::endl;
+    Engine engine;
+
+    engine.Initialize();
+    engine.Run();
+    engine.Destroy();
+
     return 0;
 }
