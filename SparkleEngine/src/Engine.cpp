@@ -4,12 +4,11 @@
 
 Engine::Engine()
 {
-	std::cout << "Engine created" << std::endl;
+	m_isRunning = false;
 }
 
 Engine::~Engine()
 {
-	std::cout << "Engine destroyed" << std::endl;
 }
 
 void Engine::Initialize()
@@ -19,56 +18,74 @@ void Engine::Initialize()
 		std::cerr << "Error initializing SDL." << std::endl;
 		return;
 	}
-	SDL_Window* window = SDL_CreateWindow(
+	m_window = SDL_CreateWindow(
 		NULL, 
 		SDL_WINDOWPOS_CENTERED, 
 		SDL_WINDOWPOS_CENTERED, 
 		800,
 		600,
-		SDL_WINDOW_BORDERLESS
+		NULL
 	);
 
-	if (!window)
+	if (!m_window)
 	{
 		std::cerr << "Error creating SDL window." << std::endl;
 		return;
 	}
 
-	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, NULL);
-	if (!renderer)
+	m_renderer = SDL_CreateRenderer(m_window, -1, NULL);
+	if (!m_renderer)
 	{
 		std::cerr << "Error creating SDL renderer." << std::endl;
 		return;
 	}
+
+	m_isRunning = true;
 }
 
 void Engine::Run()
 {
-	/*while (true)
+	while (m_isRunning)
 	{
 		ProcessInput();
 		Update();
 		Render();
-	}*/
+	}
 }
 
 void Engine::ProcessInput()
 {
-	std::cout << "Input..." << std::endl;
+	SDL_Event sdlEvent;
+	while (SDL_PollEvent(&sdlEvent))
+	{
+		switch (sdlEvent.type)
+		{
+		case SDL_QUIT: 
+			m_isRunning = false;
+			break;
+		case SDL_KEYDOWN:
+			if (sdlEvent.key.keysym.sym == SDLK_ESCAPE)
+			{
+				m_isRunning = false;
+			}
+			break;
+		}
+	}
 }
 
 void Engine::Update()
 {
-	std::cout << "Update..." << std::endl;
 
 }
 
 void Engine::Render()
 {
-	std::cout << "Render..." << std::endl;
 
 }
 
 void Engine::Destroy()
 {
+	SDL_DestroyRenderer(m_renderer);
+	SDL_DestroyWindow(m_window);
+	SDL_Quit();
 }

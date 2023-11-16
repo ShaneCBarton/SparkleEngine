@@ -1,6 +1,8 @@
 #ifndef _ENGINE_H_
 #define _ENGINE_H_
 
+#include <SDL.h>
+
 class Engine
 {
 public:
@@ -14,7 +16,10 @@ public:
 	void Destroy();
 
 private:
+	SDL_Window* m_window;
+	SDL_Renderer* m_renderer;
 
+	bool m_isRunning;
 };
 
 #endif
