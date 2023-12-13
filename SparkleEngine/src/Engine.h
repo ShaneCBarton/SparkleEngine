@@ -10,10 +10,14 @@ public:
 	~Engine();
 	void Initialize();
 	void Run();
+	void Setup();
 	void ProcessInput();
 	void Update();
 	void Render();
 	void Destroy();
+
+	int windowHeight;
+	int windowWidth;
 
 private:
 	SDL_Window* m_window;

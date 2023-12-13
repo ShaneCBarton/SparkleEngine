@@ -72,19 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>D:\SparkleEngine\SparkleEngine\SparkleEngine\libs\lua;D:\SparkleEngine\SparkleEngine\SparkleEngine\libs;D:\SparkleEngine\SparkleEngine\SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\SparkleEngine\SparkleEngine\SparkleEngine\libs\lua;D:\SparkleEngine\SparkleEngine\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\SparkleEngine\SparkleEngine\SDL2\lib\x64;D:\SparkleEngine\SparkleEngine\SparkleEngine\libs\lua;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>D:\SparkleEngine\SparkleEngine\SparkleEngine\libs\lua;D:\SparkleEngine\SparkleEngine\SparkleEngine\libs;D:\SparkleEngine\SparkleEngine\SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\SparkleEngine\SparkleEngine\SparkleEngine\libs\lua;D:\SparkleEngine\SparkleEngine\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\SparkleEngine\SparkleEngine\SDL2\lib\x64;D:\SparkleEngine\SparkleEngine\SparkleEngine\libs\lua;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>D:\SparkleEngine\SparkleEngine\SparkleEngine\libs\lua;D:\SparkleEngine\SparkleEngine\SparkleEngine\libs;D:\SparkleEngine\SparkleEngine\SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\SparkleEngine\SparkleEngine\SparkleEngine\libs\lua;D:\SparkleEngine\SparkleEngine\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\SparkleEngine\SparkleEngine\SDL2\lib\x64;D:\SparkleEngine\SparkleEngine\SparkleEngine\libs\lua;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>D:\SparkleEngine\SparkleEngine\SparkleEngine\libs\lua;D:\SparkleEngine\SparkleEngine\SparkleEngine\libs;D:\SparkleEngine\SparkleEngine\SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\SparkleEngine\SparkleEngine\SparkleEngine\libs\lua;D:\SparkleEngine\SparkleEngine\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\SparkleEngine\SparkleEngine\SDL2\lib\x64;D:\SparkleEngine\SparkleEngine\SparkleEngine\libs\lua;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include <SDL.h>
+#include <SDL_image.h>
 #include <iostream>
 
 Engine::Engine()
@@ -18,12 +19,18 @@ void Engine::Initialize()
 		std::cerr << "Error initializing SDL." << std::endl;
 		return;
 	}
+
+	SDL_DisplayMode displayMode;
+	SDL_GetCurrentDisplayMode(0, &displayMode);
+	windowWidth = 800;
+	windowHeight = 600;
+
 	m_window = SDL_CreateWindow(
 		NULL, 
 		SDL_WINDOWPOS_CENTERED, 
 		SDL_WINDOWPOS_CENTERED, 
-		800,
-		600,
+		windowWidth,
+		windowHeight,
 		NULL
 	);
 
@@ -40,18 +47,10 @@ void Engine::Initialize()
 		return;
 	}
 
+	//SDL_SetWindowFullscreen(m_window, SDL_WINDOW_FULLSCREEN_DESKTOP);
 	m_isRunning = true;
 }
 
-void Engine::Run()
-{
-	while (m_isRunning)
-	{
-		ProcessInput();
-		Update();
-		Render();
-	}
-}
 
 void Engine::ProcessInput()
 {
@@ -73,6 +72,11 @@ void Engine::ProcessInput()
 	}
 }
 
+void Engine::Setup()
+{
+
+}
+
 void Engine::Update()
 {
 
@@ -80,7 +84,31 @@ void Engine::Update()
 
 void Engine::Render()
 {
+	SDL_SetRenderDrawColor(m_renderer, 21, 21, 21, 255);
+	SDL_RenderClear(m_renderer);
 
+	SDL_Surface* surface = IMG_Load("assets/images/tank-tiger-right.png");
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(m_renderer, surface);
+	SDL_FreeSurface(surface);
+
+	SDL_Rect dstRect = { 10, 10, 64, 64 };
+
+	SDL_RenderCopy(m_renderer, texture, NULL, &dstRect);
+
+	SDL_DestroyTexture(texture);
+
+	SDL_RenderPresent(m_renderer);
+}
+
+void Engine::Run()
+{
+	Setup();
+	while (m_isRunning)
+	{
+		ProcessInput();
+		Update();
+		Render();
+	}
 }
 
 void Engine::Destroy()
