@@ -4,9 +4,11 @@
 #include <glm/glm.hpp>
 #include <iostream>
 
-Engine::Engine()
+Engine::Engine() :
+	m_isRunning(false), m_previousFrameTime(0), m_renderer(nullptr), m_window(nullptr),
+	m_windowHeight(0), m_windowWidth(0)
 {
-	m_isRunning = false;
+	
 }
 
 Engine::~Engine()
@@ -23,15 +25,15 @@ void Engine::Initialize()
 
 	SDL_DisplayMode displayMode;
 	SDL_GetCurrentDisplayMode(0, &displayMode);
-	windowWidth = 800;
-	windowHeight = 600;
+	m_windowWidth = 800;
+	m_windowHeight = 600;
 
 	m_window = SDL_CreateWindow(
 		NULL, 
 		SDL_WINDOWPOS_CENTERED, 
 		SDL_WINDOWPOS_CENTERED, 
-		windowWidth,
-		windowHeight,
+		m_windowWidth,
+		m_windowHeight,
 		NULL
 	);
 
@@ -84,7 +86,10 @@ void Engine::Setup()
 
 void Engine::Update()
 {
+	int millisecondsPreviousFrame = SDL_GetTicks64();
 	playerPosition += playerVelocity;
+
+
 }
 
 void Engine::Render()

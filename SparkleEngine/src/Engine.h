@@ -17,12 +17,14 @@ public:
 	void Render();
 	void Destroy();
 
-	int windowHeight;
-	int windowWidth;
 
 private:
 	struct SDL_Window* m_window;
 	struct SDL_Renderer* m_renderer;
+
+	int m_windowHeight;
+	int m_windowWidth;
+	int m_previousFrameTime;
 
 	bool m_isRunning;
 };
