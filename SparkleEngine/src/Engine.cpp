@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include <SDL.h>
 #include <SDL_image.h>
+#include <glm/glm.hpp>
 #include <iostream>
 
 Engine::Engine()
@@ -72,14 +73,18 @@ void Engine::ProcessInput()
 	}
 }
 
+glm::vec2 playerPosition;
+glm::vec2 playerVelocity;
+
 void Engine::Setup()
 {
-
+	playerPosition = glm::vec2(10.0, 20.0);
+	playerVelocity = glm::vec2(1.0, 0.0);
 }
 
 void Engine::Update()
 {
-
+	playerPosition += playerVelocity;
 }
 
 void Engine::Render()
@@ -91,7 +96,7 @@ void Engine::Render()
 	SDL_Texture* texture = SDL_CreateTextureFromSurface(m_renderer, surface);
 	SDL_FreeSurface(surface);
 
-	SDL_Rect dstRect = { 10, 10, 64, 64 };
+	SDL_Rect dstRect = { playerPosition.x, playerPosition.y, 64, 64 };
 
 	SDL_RenderCopy(m_renderer, texture, NULL, &dstRect);
 
