@@ -54,7 +54,6 @@ void Engine::Initialize()
 	m_isRunning = true;
 }
 
-
 void Engine::ProcessInput()
 {
 	SDL_Event sdlEvent;
@@ -86,9 +85,10 @@ void Engine::Setup()
 
 void Engine::Update()
 {
-	int millisecondsPreviousFrame = SDL_GetTicks64();
-	playerPosition += playerVelocity;
+	while (!SDL_TICKS_PASSED(SDL_GetTicks64(), m_previousFrameTime + MILLISECONDS_PER_FRAME));
 
+	m_previousFrameTime = SDL_GetTicks64();
+	playerPosition += playerVelocity;
 
 }
 
