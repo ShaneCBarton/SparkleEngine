@@ -85,7 +85,11 @@ void Engine::Setup()
 
 void Engine::Update()
 {
-	while (!SDL_TICKS_PASSED(SDL_GetTicks64(), m_previousFrameTime + MILLISECONDS_PER_FRAME));
+	int timeToWait = MILLISECONDS_PER_FRAME - (SDL_GetTicks64() - m_previousFrameTime);
+	if (timeToWait > 0 && timeToWait <= MILLISECONDS_PER_FRAME)
+	{
+		SDL_Delay(timeToWait);
+	}
 
 	m_previousFrameTime = SDL_GetTicks64();
 	playerPosition += playerVelocity;
