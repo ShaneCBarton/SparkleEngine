@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.31)
 project(SparkleEngine)
 
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 20)
 
 include(FetchContent)
 FetchContent_Declare(SFML

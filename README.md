@@ -4,7 +4,7 @@ A lightweight 2D game engine built with C++ and SFML. Cross-platform with CMake 
 ## Requirements
 
 - CMake 3.31 or higher
-- C++23 compatible compiler (Visual Studio 2022+, GCC 11+, Clang 13+, Apple Clang 13+)
+- C++20 compatible compiler (Visual Studio 2019 16.11+, GCC 10+, Clang 12+)
 - Git
 
 ## Building
@@ -27,7 +27,7 @@ After building, the executable will be in:
 ## Platform Notes
 
 ### Windows
-- Use Visual Studio 2019 or newer
+- Use Visual Studio 2019 16.11 or newer
 - You can also open the generated `.sln` file in Visual Studio
 
 ### Mac
