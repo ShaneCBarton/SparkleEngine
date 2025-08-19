@@ -21,8 +21,8 @@ cmake --build .
 ## Running
 
 After building, the executable will be in:
-- **Windows**: `build/bin/Debug/SparkleEngine.exe` or `build/bin/Release/SparkleEngine.exe`
-- **Mac/Linux**: `build/bin/SparkleEngine.exe`
+- **Windows**: `build/bin/Debug/SparkleEngine.exe` (or `build/bin/Debug/SparkleEngine.exe` with Visual Studio)
+- **Mac/Linux**: `build/bin/SparkleEngine`
 
 ## Platform Notes
 
