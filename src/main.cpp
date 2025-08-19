@@ -1,8 +1,13 @@
 #include <SFML/Graphics.hpp>
+#include "utilities/Logger.h"
 
 int main()
 {
+	Logger::LogMessage("Program entry.");
+
 	sf::RenderWindow renderWindow(sf::VideoMode({ 1280, 720 }), "Sparkle Engine");
+
+	Logger::LogError("Oops");
 
 	while (renderWindow.isOpen())
 	{
@@ -13,7 +18,8 @@ int main()
 				renderWindow.close();
 			}
 
-			renderWindow.clear(sf::Color::Blue);
+			sf::Color earthyGreen = sf::Color(132, 169, 140, 255);
+			renderWindow.clear(earthyGreen);
 			renderWindow.display();
 		}
 	}
