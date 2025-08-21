@@ -27,8 +27,9 @@ After building, the executable will be in:
 ## Platform Notes
 
 ### Windows
-- Use Visual Studio 2019 16.11 or newer
-- You can also open the generated `.sln` file in Visual Studio
+- Requires a C++20 compatible compiler (e.g., MSVC, MinGW, or Clang).
+- Visual Studio Code is recommended, but you can use any compiler and IDE supported by CMake.
+- If you generate a Visual Studio solution, you can open the `.sln` file directly in Visual Studio.
 
 ### Mac
 - Requires Xcode command line tools: `xcode-select --install`
